@@ -60,8 +60,9 @@ class PortfolioController extends Controller
         if($request->hasFile('cover_image')) {
 
             $img_path = Storage::disk('public')->put('upload_images', $formData['cover_image']);
-            
+         
             $formData['cover_image'] = $img_path;
+            
         }
 
 
