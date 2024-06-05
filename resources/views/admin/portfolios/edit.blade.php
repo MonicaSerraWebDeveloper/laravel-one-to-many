@@ -24,6 +24,16 @@
         @enderror
 
         <div class="mb-3">
+            <label for="type_id" class="form-label">Type</label>
+            <select id="type_id" class="form-select" name="type_id">
+                <option value="">Choose typology</option>
+                @foreach ($types as $type)
+                    <option @selected($type->id == old('type_id', $portfolio->type_id)) value="{{ $type->id }}">{{ $type->name }}</option>
+                @endforeach
+            </select>
+        <div>
+
+        <div class="mb-3">
             <label for="cover_image" class="form-label">Cambia immagine</label>
             <input id="cover_image" class="form-control" type="file" name="cover_image">
 

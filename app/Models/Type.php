@@ -9,7 +9,7 @@ class Type extends Model
 {
     use HasFactory;
 
-    public function portfolios() {
+    public function portfolio() {
         return $this->hasMany(Portfolio::class);
     }
 }

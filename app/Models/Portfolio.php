@@ -11,7 +11,7 @@ class Portfolio extends Model
 
     protected $fillable = ['name', 'slug', 'client_name', 'summary', 'cover_image', 'type_id'];
 
-    public function types() {
+    public function type() {
         return $this->belongsTo(Type::class);
     }
 }

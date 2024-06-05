@@ -8,6 +8,7 @@ use App\Models\Portfolio;
 use Illuminate\Support\Str;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Type;
 
 
 class PortfolioController extends Controller
@@ -35,7 +36,13 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        return view('admin.portfolios.create');
+        $type = Type::all();
+
+        $data = [
+            'types' => $type,
+        ];
+
+        return view('admin.portfolios.create', $data);
     }
 
     /**
@@ -56,6 +63,7 @@ class PortfolioController extends Controller
         );
 
         $formData = $request->all();
+
 
         if($request->hasFile('cover_image')) {
 
@@ -99,7 +107,13 @@ class PortfolioController extends Controller
      */
     public function edit(Portfolio $portfolio)
     {
-        return view('admin.portfolios.edit', compact('portfolio'));
+        $type = Type::all();
+
+        $data = [
+            'types' => $type,
+        ];
+
+        return view('admin.portfolios.edit', compact('portfolio'), $data);
     }
 
     /**
