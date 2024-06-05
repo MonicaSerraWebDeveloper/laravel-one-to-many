@@ -9,5 +9,9 @@ class Portfolio extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'client_name', 'summary', 'cover_image'];
+    protected $fillable = ['name', 'slug', 'client_name', 'summary', 'cover_image', 'type_id'];
+
+    public function types() {
+        return $this->belongsTo(Type::class);
+    }
 }
